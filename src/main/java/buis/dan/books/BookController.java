@@ -69,6 +69,20 @@ public class BookController {
 		return "redirect:/book_list";
 	}
 	
+	@RequestMapping(value = "/book_input")
+	public String inputBook(Model model){
+		List<Category> categories = bookManager.getAllCategories();
+		model.addAttribute("categories", categories);
+		model.addAttribute("book",new Book());
+		return "BookAddForm";
+	}
 	
+	@RequestMapping(value = "/book_save")
+	public String saveBook(@ModelAttribute Book book){
+		Category category = bookManager.getCategory(book.getCategory().getId());
+		book.setCategory(category);
+		bookManager.save(book);
+		return "redirect:/book_list";
+	}
 	
 }

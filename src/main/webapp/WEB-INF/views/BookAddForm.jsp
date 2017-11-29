@@ -2,19 +2,17 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Book Edit Form</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<div id="global">
-		<form:form commandName = "book" action ="${pageContext.request.contextPath}/book_update" method = "post">
+<div id="global">
+		<form:form commandName = "book" action ="book_save" method = "post">
 			<fieldset>
-				<legend>Edit a book</legend>
-				<form:hidden path="id"/>
+				<legend>Add a book</legend>
 				<p>
 					<label for="category">Category: </label>
 					<form:select id="category" path ="category.id" items="${categories}"
@@ -34,11 +32,10 @@
 				</p>
 				<p id="buttons">
 				 	<input id="reset" type="reset" tabindex="4">
-				 	<input id="submit" type="submit" tabindex="5" value="Update Book">
+				 	<input id="submit" type="submit" tabindex="5" value="Add Book">
 				</p>
 			</fieldset>
 		</form:form>
 	</div>
-
 </body>
 </html>
